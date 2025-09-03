@@ -65,3 +65,15 @@ public class Pessoa {
         return cpf != null && cpf.length() == 11;
     }
 }
+
+public class Main {
+    public static void main(String[] args) {
+        Pessoa pessoa = new Pessoa("João", 25, "joao@email.com", "12345678901", "11988887777");
+
+        System.out.println("Nome: " + pessoa.getNome());
+        System.out.println("Ida de: " + pessoa.getIdade());
+        System.out.println("CPF válido? " + pessoa.validarCpf());
+
+        pessoa.setIdade(-18);
+    }
+}
