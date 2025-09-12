@@ -1,17 +1,18 @@
 public class Pessoa {
     private String nome;
     private int idade;
-    private String email;
+    private String sobrenome;
     private String cpf;
     private String telefone;
 
 
-    public Pessoa (String nome, int idade, String email, String cpf, String telefone) {
+    public Pessoa(String nome, int idade, String sobrenome, String cpf, String telefone) {
         this.nome = nome;
-        setIdade(idade); 
-        this.email = email;
+        setIdade(idade);
+        this.sobrenome = sobrenome;
         this.cpf = cpf;
         this.telefone = telefone;
+
     }
 
 
@@ -19,12 +20,16 @@ public class Pessoa {
         return nome;
     }
 
-    public int getIdade() {
-        return idade;
+    public void setIdade(int idade) {
+        if (idade >= 15 && idade <= 110) {
+            this.idade = idade;
+        } else {
+            System.out.println("Idade inválida!");
+        }
     }
 
-    public String getEmail() {
-        return email;
+    public String getSobrenome() {
+        return sobrenome;
     }
 
     public String getCpf() {
@@ -35,45 +40,25 @@ public class Pessoa {
         return telefone;
     }
 
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setIdade(int idade) {
-        if (idade >= 0 && idade <= 120) {
-            this.idade = idade;
-        } else {
-            System.out.println("Idade inválida!");
-        }
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-
     public boolean validarCpf() {
         return cpf != null && cpf.length() == 11;
     }
+    public int getIdade(){
+        return idade;
+    }
 }
+
 
 public class Main {
     public static void main(String[] args) {
-        Pessoa pessoa = new Pessoa("João", 25, "joao@email.com", "12345678901", "11988887777");
-
+        Pessoa pessoa = new Pessoa("Deryck", 18, "Deryck", "12345678909", "87999519795");
         System.out.println("Nome: " + pessoa.getNome());
-        System.out.println("Ida de: " + pessoa.getIdade());
-        System.out.println("CPF válido? " + pessoa.validarCpf());
-
+        System.out.println("Idade: " + pessoa.getIdade());
+        System.out.println("Sobrenome: " + pessoa.getSobrenome());
+        System.out.println("CPF: " + pessoa.getCpf());
+        System.out.println("Usuário tem CPF válido?: " + pessoa.validarCpf());
+        System.out.println("Telefone: " + pessoa.getTelefone());
+        System.out.println("\n");
         pessoa.setIdade(-18);
     }
 }
